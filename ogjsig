@@ -1,0 +1,16 @@
+from datetime import datetime, timedelta
+
+# Current time
+now = datetime.now()
+print("Now:", now)
+
+# Formatting
+print("Formatted:", now.strftime("%Y-%m-%d %H:%M:%S"))
+
+# Parsing
+dt = datetime.strptime("2026-04-22 17:30", "%Y-%m-%d %H:%M")
+print("Parsed:", dt)
+
+# Time difference
+future = now + timedelta(days=10)
+print("10 days later:", future)
