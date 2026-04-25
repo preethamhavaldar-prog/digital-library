@@ -41,7 +41,7 @@ def load_books():
     try:
       with open("BOOKS_JSON", "r") as file:
         return json.load(file)
-    except FileNotFoundError, json.JSONDecodeError):
+    except (FileNotFoundError, json.JSONDecodeError):
         return []        
 def view_books():
     result = ""
