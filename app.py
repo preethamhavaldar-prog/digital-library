@@ -13,13 +13,22 @@ def home():
 @app.route("/search")
 def search():
     query = request.args.get("query", "")
-    return render_template("index.html", books=search_books(query))
+    results = search_books(query)
+    dashboard = get_dashboard_data()
+    
+    return render_template("index.html",books=results,dashboard = dashboard)
 @app.route("/add", methods=["POST"])
 def add_book_route():
     title = request.form["title"]
     author = request.form["author"]
     add_book(title, author)
-    return render_template("index.html", books=view_books())
+    dashboard = get_dashboard_data()
+
+    return render_template(
+        "index.html",
+        books = veiw_books(),
+        daashboard = dashboard
+    )
 @app.route("/borrow/<int:book_id>")
 def borrow(book_id):
     borrow_book(book_id)
