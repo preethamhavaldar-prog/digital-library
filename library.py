@@ -4,7 +4,12 @@ from datetime import datetime
 #print("welcome to the library!")
 
 from datetime import datetime
+import os
+import json
+from datetime import datetime, timedelta
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BOOK_FILE = os.path.join(BASE_DIR, "books.json")
 def get_dashboard_data():
     total = len(books)
     borrowed = 0
@@ -30,11 +35,11 @@ def get_dashboard_data():
         "overdue": overdue
     }
 def save_books():
-    with open("books.json", "w") as file:
+    with open("BOOOKS_JSON", "w") as file:
         json.dump(books, file)
 def load_books():
     try:
-      with open("books.json", "r") as file:
+      with open("BOOKS_JSON", "r") as file:
         return json.load(file)
     except FileNotFoundError:
         return []        
