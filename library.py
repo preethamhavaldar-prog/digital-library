@@ -110,10 +110,10 @@ def borrow_book(book_id):
                 return(f"Sorry, '{book['book_title']}' is currently not available.")
     return("Book not found.")
 def add_book(book_title, author):
-    "borrow_date": None,
-    "due_date": None
+    
     new_id = max([book["id"] for book in books], default=0) + 1#or use this new_id = len(books) + 1
-    new_book = {"id": new_id, "book_title": book_title, "author": author, "status": "available"}
+    new_book = {"id": new_id, "book_title": book_title, "author": author, "status": "available","borrow_date": None,
+    "due_date": None}
     books.append(new_book)
     save_books()
     return(f"'{book_title}' by {author} has been added to the library.")
