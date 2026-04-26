@@ -84,13 +84,25 @@ def view_books():
 
         # buttons ALWAYS inside same card
         result += f"""
-            <a href="/borrow/{book['id']}" style="background:#2196F3; color:white; padding:5px 10px; border-radius:5px;">Borrow</a>
+            <div class="actions">
 
-            <a href="/return/{book['id']}" style="background:#FFC107; color:black; padding:5px 10px; border-radius:5px;">Return</a>
+            <a class="borrow-btn"
+               href="/borrow/{book['id']}">
+               Borrow
+            </a>
 
-            <a href="/delete/{book['id']}" style="background:red; color:white; padding:5px 10px; border-radius:5px;" onclick="return confirm('Are you sure?')">🗑️ Delete</a>
+            <a class="return-btn"
+               href="/return/{book['id']}">
+               Return
+            </a>
 
+            <a class="delete-btn"
+                href="/delete/{book['id']}">
+                Delete
+            </a>
         </div>
+        </div>
+        
         """
 
     return result
@@ -158,4 +170,5 @@ def search_books(query):
 
     return result
 books=load_books()        
+
 
